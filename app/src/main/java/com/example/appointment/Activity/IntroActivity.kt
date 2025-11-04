@@ -3,7 +3,6 @@ package com.example.appointment.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import com.example.appointment.Activity.BaseActivity
 import com.example.appointment.databinding.ActivityIntroBinding
 
 class IntroActivity : BaseActivity() {
@@ -17,13 +16,8 @@ class IntroActivity : BaseActivity() {
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.apply {
-            startBtn.setOnClickListener {
-                startActivity(Intent(this@IntroActivity, MainActivity::class.java))
-            }
+        binding.startBtn.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
-
-
-
     }
 }

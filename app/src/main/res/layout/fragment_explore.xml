@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hi, Md Hasibul Islam"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="20dp"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/black" />
@@ -73,7 +73,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -97,8 +97,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSpeciality"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:paddingTop="8dp"
+                android:layout_height="90dp"
                 android:clipToPadding="false" />
 
             <ProgressBar
@@ -112,23 +111,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Top Doctors"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textColor="@color/black" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvSeeAllDoctors"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
                     android:layout_marginStart="230dp"
+                    android:text="See all"
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -136,8 +134,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvDoctors"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:paddingTop="8dp" />
+                android:layout_height="wrap_content" />
 
             <ProgressBar
                 android:id="@+id/loadingDoctors"

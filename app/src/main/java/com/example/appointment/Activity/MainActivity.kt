@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.appointment.Adaptar.SpecialistAdapter
 import com.example.appointment.Fragment.ExploreFragment
 import com.example.appointment.Fragment.ProfileFragment
 import com.example.appointment.Fragment.SettingsFragment
