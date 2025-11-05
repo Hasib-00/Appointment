@@ -2,19 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/patient_main"
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.AppointmentReg">
 
     <TextView
-        android:id="@+id/RegistertittleTV"
+        android:id="@+id/patientTitleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:fontFamily="sans-serif-black"
-        android:text="Appointment"
+        android:text="Patient Registration"
         android:textColor="@color/purple"
         android:textSize="30.sp"
         android:textStyle="bold"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/usernameregTV"
+        android:id="@+id/patientNameLabelTV"
         android:layout_width="206dp"
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
@@ -34,10 +34,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegistertittleTV" />
+        app:layout_constraintTop_toBottomOf="@+id/patientTitleTV" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userrnameregInput"
+        android:id="@+id/patientNameLayout"
         android:layout_width="364dp"
         android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
@@ -46,13 +46,12 @@
         android:textColorHint="@color/black"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameregTV">
+        app:layout_constraintTop_toBottomOf="@+id/patientNameLabelTV">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameInputTXT"
+            android:id="@+id/patientNameInputTXT"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:layout_width="match_parent"
@@ -61,7 +60,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/emailregTV"
+        android:id="@+id/patientEmailLabelTV"
         android:layout_width="206dp"
         android:layout_height="20dp"
         android:layout_marginTop="4dp"
@@ -71,10 +70,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userrnameregInput" />
+        app:layout_constraintTop_toBottomOf="@+id/patientNameLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailregInput"
+        android:id="@+id/patientEmailLayout"
         android:layout_width="364dp"
         android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
@@ -83,24 +82,21 @@
         android:textColorHint="@color/black"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailregTV">
+        app:layout_constraintTop_toBottomOf="@+id/patientEmailLabelTV">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailregTXT"
+            android:id="@+id/patientEmailInputTXT"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text" />
-
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <TextView
-        android:id="@+id/paswordregTV"
+        android:id="@+id/patientPhoneLabelTV"
         android:layout_width="206dp"
         android:layout_height="20dp"
         android:layout_marginTop="8dp"
@@ -110,10 +106,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailregInput" />
+        app:layout_constraintTop_toBottomOf="@+id/patientEmailLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordRegInput"
+        android:id="@+id/patientPhoneLayout"
         android:layout_width="364dp"
         android:layout_height="60dp"
         android:layout_marginHorizontal="20dp"
@@ -124,31 +120,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/paswordregTV">
+        app:layout_constraintTop_toBottomOf="@+id/patientPhoneLabelTV">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NumberTXT"
+            android:id="@+id/patientPhoneInputTXT"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="text" />
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <Button
-        android:id="@+id/loginBTN"
+        android:id="@+id/patientRegisterBTN"
         android:layout_width="299dp"
         android:layout_height="43dp"
         android:layout_marginTop="64dp"
         android:backgroundTint="@color/purple"
-        android:text="Login"
+        android:text="Register"
         android:textColor="@color/white"
         app:cornerRadius="5.dp"
-        app:layout_constraintEnd_toEndOf="@+id/passwordRegInput"
+        app:layout_constraintEnd_toEndOf="@+id/patientPhoneLayout"
         app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="@+id/passwordRegInput"
-        app:layout_constraintTop_toBottomOf="@+id/passwordRegInput" />
-
+        app:layout_constraintStart_toStartOf="@+id/patientPhoneLayout"
+        app:layout_constraintTop_toBottomOf="@+id/patientPhoneLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

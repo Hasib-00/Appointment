@@ -32,15 +32,15 @@ class AppointmentReg : AppCompatActivity() {
         loadSavedData(prefs)
 
         // Automatically save data when user types
-        binding.usernameInputTXT.addTextChangedListener { saveData(prefs) }
-        binding.emailregTXT.addTextChangedListener { saveData(prefs) }
-        binding.NumberTXT.addTextChangedListener { saveData(prefs) }
+        binding.patientNameInputTXT.addTextChangedListener { saveData(prefs) }
+        binding.patientEmailInputTXT.addTextChangedListener { saveData(prefs) }
+        binding.patientPhoneInputTXT.addTextChangedListener { saveData(prefs) }
 
         // Button click
-        binding.loginBTN.setOnClickListener {
-            val username = binding.usernameInputTXT.text.toString().trim()
-            val email = binding.emailregTXT.text.toString().trim()
-            val number = binding.NumberTXT.text.toString().trim()
+        binding.patientRegisterBTN.setOnClickListener {
+            val username = binding.patientNameInputTXT.text.toString().trim()
+            val email = binding.patientEmailInputTXT.text.toString().trim()
+            val number = binding.patientPhoneInputTXT.text.toString().trim()
 
             when {
                 username.isEmpty() -> {
@@ -79,16 +79,16 @@ class AppointmentReg : AppCompatActivity() {
         }
 
         // Sign-in click
-        binding.loginBTN.setOnClickListener {
+        binding.patientRegisterBTN.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun saveData(prefs: SharedPreferences) {
-        val username = binding.usernameInputTXT.text.toString().trim()
-        val email = binding.emailregTXT.text.toString().trim()
-        val number = binding.NumberTXT.text.toString().trim()
+        val username = binding.patientNameInputTXT.text.toString().trim()
+        val email = binding.patientEmailInputTXT.text.toString().trim()
+        val number = binding.patientPhoneInputTXT.text.toString().trim()
 
         prefs.edit().apply {
             putString(KEY_USERNAME, username)
@@ -99,8 +99,8 @@ class AppointmentReg : AppCompatActivity() {
     }
 
     private fun loadSavedData(prefs: SharedPreferences) {
-        binding.usernameInputTXT.setText(prefs.getString(KEY_USERNAME, ""))
-        binding.emailregTXT.setText(prefs.getString(KEY_EMAIL, ""))
-        binding.NumberTXT.setText(prefs.getString(KEY_NUMBER, ""))
+        binding.patientNameInputTXT.setText(prefs.getString(KEY_USERNAME, ""))
+        binding.patientEmailInputTXT.setText(prefs.getString(KEY_EMAIL, ""))
+        binding.patientPhoneInputTXT.setText(prefs.getString(KEY_NUMBER, ""))
     }
 }
