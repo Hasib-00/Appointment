@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.appointment.Fragment.DoctorListFragment
 import com.example.appointment.Fragment.ExploreFragment
 import com.example.appointment.Fragment.ProfileFragment
-import com.example.appointment.Fragment.SettingsFragment
 import com.example.appointment.Fragment.WhitelistFragment
 import com.example.appointment.R
 import com.example.appointment.databinding.ActivityMainBinding
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.exploreicone -> replaceFragment(ExploreFragment())
                 R.id.loveicone -> replaceFragment(WhitelistFragment())
-                R.id.Settingsicone -> replaceFragment(SettingsFragment())
+                R.id.Settingsicone -> replaceFragment(DoctorListFragment())
                 R.id.acoounticone -> replaceFragment(ProfileFragment())
             }
             true
