@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Appointment">
         <activity
+            android:name=".Activity.AppointmentReg"
+            android:exported="false" />
+        <activity
             android:name=".Activity.DetailActivity"
             android:exported="false" />
         <activity

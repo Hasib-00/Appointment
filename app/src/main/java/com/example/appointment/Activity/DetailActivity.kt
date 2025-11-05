@@ -19,7 +19,9 @@ class DetailActivity : AppCompatActivity() {
 
         getDoctorData()
         setupClicks()
+
     }
+
     private fun getDoctorData() {
 
         item = intent.getSerializableExtra("Object") as? TopDoctorModel
@@ -44,6 +46,7 @@ class DetailActivity : AppCompatActivity() {
                 .into(imgDoctor)
         }
     }
+
     private fun setupClicks() {
         binding.btnBack.setOnClickListener { finish() }
         // Since your model has no phone/email/site — buttons disabled for now
@@ -84,5 +87,12 @@ class DetailActivity : AppCompatActivity() {
             intent.putExtra("DoctorName", item?.Name)
             startActivity(intent)
         }
+        binding.btnBook.setOnClickListener {
+            val intent = Intent(this, AppointmentReg::class.java)
+            intent.putExtra("DoctorName", item?.Name)
+            startActivity(intent)
+        }
+
+
     }
 }
