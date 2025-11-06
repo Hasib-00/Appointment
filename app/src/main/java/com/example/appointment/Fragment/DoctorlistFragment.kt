@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appointment.Activity.AddDoctorActivity
 import com.example.appointment.Database.DoctorAdapter
@@ -19,7 +20,9 @@ class DoctorListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var adapter: DoctorAdapter
-    private val viewModel: DoctorViewModel by viewModels()
+    private val viewModel: DoctorViewModel by activityViewModels {
+        ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,14 +34,11 @@ class DoctorListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupRecyclerView()
 
         viewModel.allDoctors.observe(viewLifecycleOwner) { list ->
             adapter.updateList(list)
         }
-
-
     }
 
     private fun setupRecyclerView() {
@@ -49,9 +49,7 @@ class DoctorListFragment : Fragment() {
                 intent.putExtra("doctor_id", doctor.id)
                 startActivity(intent)
             },
-            onDelete = { doctor ->
-                viewModel.delete(doctor)
-            }
+            onDelete = { doctor -> viewModel.delete(doctor) }
         )
 
         binding.doctorRecyclerView.layoutManager =

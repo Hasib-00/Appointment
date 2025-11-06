@@ -1,8 +1,11 @@
 package com.example.appointment.Database
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.appointment.R
 import com.example.appointment.databinding.ListdoctorBinding
 
 class DoctorAdapter(
@@ -23,6 +26,14 @@ class DoctorAdapter(
         val doctor = doctorList[position]
         holder.binding.tvDoctorName.text = doctor.name
         holder.binding.tvSpeciality.text = doctor.specialization
+
+        // ✅ Load image from URI or use default
+        val imageUri = doctor.imageUri?.let { Uri.parse(it) }
+        Glide.with(holder.binding.imgDoctor.context)
+            .load(imageUri ?: doctor.picture)
+            .placeholder(R.drawable.doctor)
+            .error(R.drawable.doctor)
+            .into(holder.binding.imgDoctor)
 
         holder.binding.btnEdit.setOnClickListener { onEdit(doctor) }
         holder.binding.btnDelete.setOnClickListener { onDelete(doctor) }

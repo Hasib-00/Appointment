@@ -56,6 +56,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
     //room database
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     ksp("androidx.room:room-compiler:2.8.3")
     implementation("androidx.room:room-runtime:2.8.3")
     implementation("androidx.room:room-ktx:2.8.3")

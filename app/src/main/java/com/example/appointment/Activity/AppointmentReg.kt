@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
-import com.example.appointment.R
 import com.example.appointment.databinding.ActivityAppointmentRegBinding
 
 class AppointmentReg : AppCompatActivity() {
@@ -27,73 +24,45 @@ class AppointmentReg : AppCompatActivity() {
         setContentView(binding.root)
 
         val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-
-        // Load saved data
         loadSavedData(prefs)
 
-        // Automatically save data when user types
         binding.patientNameInputTXT.addTextChangedListener { saveData(prefs) }
         binding.patientEmailInputTXT.addTextChangedListener { saveData(prefs) }
         binding.patientPhoneInputTXT.addTextChangedListener { saveData(prefs) }
 
-        // Button click
         binding.patientRegisterBTN.setOnClickListener {
             val username = binding.patientNameInputTXT.text.toString().trim()
             val email = binding.patientEmailInputTXT.text.toString().trim()
             val number = binding.patientPhoneInputTXT.text.toString().trim()
 
             when {
-                username.isEmpty() -> {
-                    Toast.makeText(this, "Please enter your username", Toast.LENGTH_SHORT).show()
-                }
-                username.length < 4 -> {
-                    Toast.makeText(this, "Username must be at least 4 characters", Toast.LENGTH_SHORT).show()
-                }
-                username.length > 15 -> {
-                    Toast.makeText(this, "Username cannot be longer than 15 characters", Toast.LENGTH_SHORT).show()
-                }
-                !username.matches(Regex("^[A-Za-z0-9._]+$")) -> {
-                    Toast.makeText(this, "Only letters, numbers, underscores, and dots are allowed", Toast.LENGTH_SHORT).show()
-                }
-                username.contains("..") || username.contains("__") -> {
-                    Toast.makeText(this, "No consecutive dots or underscores allowed", Toast.LENGTH_SHORT).show()
-                }
-                email.isEmpty() -> {
-                    Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show()
-                }
-                !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
-                    Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
-                }
-                number.isEmpty() -> {
-                    Toast.makeText(this, "Please enter your phone number", Toast.LENGTH_SHORT).show()
-                }
-                !number.matches(Regex("^[0-9]{10,15}$")) -> {
-                    Toast.makeText(this, "Please enter a valid phone number", Toast.LENGTH_SHORT).show()
-                }
+                username.isEmpty() -> toast("Please enter your username")
+                username.length < 4 -> toast("Username must be at least 4 characters")
+                username.length > 15 -> toast("Username cannot be longer than 15 characters")
+                !username.matches(Regex("^[A-Za-z0-9._]+$")) -> toast("Only letters, numbers, underscores, and dots are allowed")
+                username.contains("..") || username.contains("__") -> toast("No consecutive dots or underscores allowed")
+                email.isEmpty() -> toast("Please enter your email")
+                !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> toast("Please enter a valid email")
+                number.isEmpty() -> toast("Please enter your phone number")
+                !number.matches(Regex("^[0-9]{10,15}$")) -> toast("Please enter a valid phone number")
                 else -> {
-                    Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    saveData(prefs)
+                    toast("Signup Successful")
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 }
             }
         }
-
-        // Sign-in click
-        binding.patientRegisterBTN.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
     }
 
-    private fun saveData(prefs: SharedPreferences) {
-        val username = binding.patientNameInputTXT.text.toString().trim()
-        val email = binding.patientEmailInputTXT.text.toString().trim()
-        val number = binding.patientPhoneInputTXT.text.toString().trim()
+    private fun toast(msg: String) =
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 
+    private fun saveData(prefs: SharedPreferences) {
         prefs.edit().apply {
-            putString(KEY_USERNAME, username)
-            putString(KEY_EMAIL, email)
-            putString(KEY_NUMBER, number)
+            putString(KEY_USERNAME, binding.patientNameInputTXT.text.toString().trim())
+            putString(KEY_EMAIL, binding.patientEmailInputTXT.text.toString().trim())
+            putString(KEY_NUMBER, binding.patientPhoneInputTXT.text.toString().trim())
             apply()
         }
     }
