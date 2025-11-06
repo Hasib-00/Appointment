@@ -11,47 +11,53 @@ import com.example.appointment.Fragment.WhitelistFragment
 import com.example.appointment.R
 import com.example.appointment.databinding.ActivityMainBinding
 
+/**
+ * MainActivity
+ * -------------
+ * This is the main screen of the app after login/intro.
+ * It uses a Bottom Navigation Bar to switch between different sections:
+ * Explore, Whitelist (favorites), Doctor List, and Profile.
+ */
 class MainActivity : AppCompatActivity() {
 
+    // ViewBinding for accessing the layout views
     private lateinit var binding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Enables full-screen layout (edge-to-edge UI)
         enableEdgeToEdge()
 
-        // Inflate the layout via binding
+        // Inflate the layout using ViewBinding (connects XML layout to Kotlin)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        //Navbar Start
-
+        // Load the default fragment (home screen)
         replaceFragment(ExploreFragment())
 
-        binding.navbar.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.exploreicone -> replaceFragment(ExploreFragment())
-                R.id.loveicone -> replaceFragment(WhitelistFragment())
-                R.id.Settingsicone -> replaceFragment(DoctorListFragment())
-                R.id.acoounticone -> replaceFragment(ProfileFragment())
+        // Handle bottom navigation item clicks
+        binding.navbar.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.exploreicone -> replaceFragment(ExploreFragment())      // Home / Discover
+                R.id.loveicone -> replaceFragment(WhitelistFragment())      // Favorite doctors
+                R.id.Settingsicone -> replaceFragment(DoctorListFragment()) // Doctor directory
+                R.id.acoounticone -> replaceFragment(ProfileFragment())     // User profile
             }
-            true
+            true // Return true to indicate the click was handled
         }
-
     }
 
-
-
-    private fun replaceFragment (fragment: Fragment){
-
+    /**
+     * Helper function to switch (replace) fragments on the main screen.
+     *
+     * @param fragment The fragment you want to show (e.g., ExploreFragment)
+     */
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main,fragment)
-            .commit()
+            .replace(R.id.main, fragment) // Replace current fragment with new one
+            .commit()                     // Apply the transaction
     }
-
-
-
 
     // Navbar End
 }
