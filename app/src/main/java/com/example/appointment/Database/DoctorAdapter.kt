@@ -67,10 +67,10 @@ class DoctorAdapter(
             .into(holder.binding.imgDoctor)
 
         // Handle Edit button click — pass doctor object to onEdit callback
-        holder.binding.btnEdit.setOnClickListener { onEdit(doctor) }
+       // holder.binding.btnEdit.setOnClickListener { onEdit(doctor) }
 
         // Handle Delete button click — pass doctor object to onDelete callback
-        holder.binding.btnDelete.setOnClickListener { onDelete(doctor) }
+        //holder.binding.btnDelete.setOnClickListener { onDelete(doctor) }
     }
 
     /**

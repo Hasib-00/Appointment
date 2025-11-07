@@ -114,31 +114,6 @@
             android:layout_marginTop="8dp"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/btnEdit"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="Edit"
-                android:textSize="14sp"
-                android:textColor="@android:color/white"
-                android:textAllCaps="false"
-                android:backgroundTint="@color/purple" />
-
-            <Space
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
-
-            <Button
-                android:id="@+id/btnDelete"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="Delete"
-                android:textSize="14sp"
-                android:textColor="@android:color/white"
-                android:textAllCaps="false"
-                android:backgroundTint="@android:color/holo_red_dark" />
         </LinearLayout>
 
     </RelativeLayout>

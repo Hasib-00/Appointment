@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import com.example.appointment.Fragment.DoctorListFragment
 import com.example.appointment.Fragment.ExploreFragment
 import com.example.appointment.Fragment.ProfileFragment
-import com.example.appointment.Fragment.WhitelistFragment
 import com.example.appointment.R
 import com.example.appointment.databinding.ActivityMainBinding
 
@@ -40,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         binding.navbar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.exploreicone -> replaceFragment(ExploreFragment())      // Home / Discover
-                R.id.loveicone -> replaceFragment(WhitelistFragment())      // Favorite doctors
-                R.id.Settingsicone -> replaceFragment(DoctorListFragment()) // Doctor directory
+                R.id.Doctorsicone -> replaceFragment(DoctorListFragment()) // Doctor directory
                 R.id.acoounticone -> replaceFragment(ProfileFragment())     // User profile
             }
             true // Return true to indicate the click was handled
