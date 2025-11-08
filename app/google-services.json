@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "823877393989",
-    "project_id": "appointment-03",
-    "storage_bucket": "appointment-03.firebasestorage.app"
+    "project_number": "106873408879",
+    "project_id": "appointment-c0cdd",
+    "storage_bucket": "appointment-c0cdd.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:823877393989:android:bd9f1da62e9c6d91414d2c",
+        "mobilesdk_app_id": "1:106873408879:android:d13446947c1a932da26c9a",
         "android_client_info": {
           "package_name": "com.example.appointment"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAroyXe7CGejapkqMNp4CoYNPnYJIWIV2U"
+          "current_key": "AIzaSyBHYG7P61fAlX6EOFPEg9aGEaj812Sl7Lw"
         }
       ],
       "services": {
